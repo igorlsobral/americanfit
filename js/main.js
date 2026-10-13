@@ -59,7 +59,7 @@
     const walk = (node) => {
       Array.from(node.childNodes).forEach((child) => {
         if (child.nodeType === Node.ELEMENT_NODE) {
-          walk(child);
+          if (child.namespaceURI !== "http://www.w3.org/2000/svg") walk(child);
           return;
         }
         if (child.nodeType !== Node.TEXT_NODE) return;
